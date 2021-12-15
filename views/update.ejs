@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update</title>
+</head>
+<body>
+    <h1>update</h1>
+    <form action="/update/<%= user.id %>?_method=PUT" method="POST">
+        <div>
+            <label for="userName">Enter UserEmail</label>
+            <input type="text" name="userEmail" id="userName" value="<%= user.userEmail %> ">
+         </div>
+        
+        <div>
+        <label for="userName">Enter UserName</label>
+        <input type="text" name="userName" id="userName" value="<%= user.userName %> ">
+     </div>
+    
+     <div>
+        <label for="totalOrder">Enter order</label>
+        <input type="number" name="totalOrder" id="totalOrder" value="<%= user.totalOrder %>">
+     </div>
+     <div>
+        <label for="userImage">Enter UserImage</label>
+        <input type="text" name="userImage" id="userImage" value="<%= user.userImage%>">
+     </div>
+     <button>update</button>
+    </form>
+   
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+   
+<div class="container mt-5">
+    <h1 class="text-center">Insert New User  <a href="/insert" class="btn btn-success">+</a></h1>
+    
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User email</th>
+                <th scope="col">User Name</th>
+                <th scope="col">User Image</th>
+                <th scope="col">Total Orders</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach((user, i) => { %>
+
+            <tr>
+                <th scope="row"><%= i+1 %> </th>
+
+                <td> <a href="/details/<%= user.id %> "><%= user.userName %></a> </td>
+                <td><%= user.userEmail %> </td>
+                <td><a href="/image/<%= user.id %> "><i class="fas fa-user-circle"></i></a> </td>
+                <td><%= user.totalOrder %></td>
+                <td>
+                    <div class="modal-body">
+                        <form action="/update/<%= user.id %>?_method=UPDATE" method="PUT">
+                            <button type="submit" class="btn btn-warning"><i class="fas fa-edit"></i></i></button>
+                        </form>
+                    </div>
+                </td>
+                <td>
+                    <div class="modal-body">
+                        <form action="/delete/<%= user.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+
+            <% }) %>
+        </tbody>
+
+    </table>
+
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
